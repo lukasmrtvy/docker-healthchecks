@@ -1,5 +1,9 @@
 #!/bin/bash
 
+export SD_USER=${SD_USER:-admin}
+export SD_PASS=${SD_PASS:-admin}
+
+
 local_settings_path="/opt/healthchecks/hc/local_settings.py"
 
 export DB_TYPE=${DB_TYPE:-sqlite}
