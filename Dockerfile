@@ -8,7 +8,7 @@ ENV USER healthchecks
 ENV GROUP healthchecks
 
 RUN addgroup -S ${GROUP} -g ${GID} && adduser -D -S -u ${UID} ${USER} ${GROUP} && \
-    apk update && apk add --no-cache curl python3 supervisor bash && \
+    apk update && apk add --no-cache curl python3 supervisor bash openssl tzdata && \
     mkdir -p /opt/healthchecks && curl -sSL https://github.com/healthchecks/healthchecks/archive/v${VERSION}.tar.gz | tar xz -C /opt/healthchecks --strip-components=1 && \
     apk add --virtual .build-deps gcc python3-dev musl-dev postgresql-dev && \
     ln -sf /usr/bin/python3 /usr/bin/python && \
